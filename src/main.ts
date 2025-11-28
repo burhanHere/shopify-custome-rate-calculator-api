@@ -60,6 +60,6 @@ async function bootstrap() {
   }); // Swagger UI at /swagger
 
   // started the application server
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
 void bootstrap();
