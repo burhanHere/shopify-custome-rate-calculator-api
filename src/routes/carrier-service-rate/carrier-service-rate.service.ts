@@ -185,7 +185,7 @@ export class CarrierServiceRateService {
         finalRate = {
           service_name: targetDeliveryService?.name ?? 'Pakistan Post',
           service_code: targetDeliveryService?.serviceCode ?? 'PKP',
-          total_price: weightCatagoryRate.rate.toFixed(2),
+          total_price: (weightCatagoryRate.rate * 100).toFixed(0), // rate in smalled unit of currency
           description: this.pakistanPostDescription,
           currency: this.currency,
           min_delivery_date: this.pakistanPostMinDeliveryTime,
@@ -237,7 +237,7 @@ export class CarrierServiceRateService {
     finalRate = {
       service_name: targetDeliveryService?.name ?? 'TCS',
       service_code: targetDeliveryService?.serviceCode ?? 'TCS',
-      total_price: rate.toFixed(2), // replace this to smaller currency unit => Math.round(rate * 100).toString()
+      total_price: (rate * 100).toFixed(0), //  to be in smalled unit of currency
       description:
         targetDeliveryService?.name === 'TCS (Advance)'
           ? this.tcsAdvanceDescription // TCS (Advance)
